@@ -52,7 +52,7 @@ class Create extends Command
      */
     public function handle()
     {
-        $program = studly_case($this->argument('program'));
+        $program = Str::studly($this->argument('program'));
 
         if (!is_dir('resources/assets/elm')) {
             $this->files->makeDirectory('resources/assets/elm/');
