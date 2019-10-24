@@ -75,5 +75,10 @@ main =
 EOT;
 
         $this->files->put("resources/elm/$program/Main.elm", $initialProgram);
+        
+        $this->info('Now run:');
+        $this->line('$ cd resources/elm/');
+        $this->line('$ elm init');
+        $this->line('$ elm make ' . $program . '/Main.elm');
     }
 }
