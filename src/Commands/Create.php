@@ -79,6 +79,6 @@ EOT;
         $this->info('Now run:');
         $this->line('$ cd resources/elm/');
         $this->line('$ elm init');
-        $this->line('$ elm make ' . $program . '/Main.elm');
+        $this->line('$ elm make ' . $program . '/Main.elm --output ' . $program . '.js');
     }
 }
