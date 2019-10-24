@@ -54,15 +54,15 @@ class Create extends Command
     {
         $program = \Str::studly($this->argument('program'));
 
-        if (!is_dir('resources/assets')) {
-            $this->files->makeDirectory('resources/assets/');
+        if (!is_dir('resources')) {
+            $this->files->makeDirectory('resources/');
         }
 
-        if (!is_dir('resources/assets/elm')) {
-            $this->files->makeDirectory('resources/assets/elm/');
+        if (!is_dir('resources/elm')) {
+            $this->files->makeDirectory('resources/elm/');
         }
 
-        $this->files->makeDirectory('resources/assets/elm/' . $program);
+        $this->files->makeDirectory('resources/elm/' . $program);
 
         $initialProgram = <<<EOT
 module $program exposing (..)
@@ -74,6 +74,6 @@ main =
    div [] [ h1 [] [text "Hello, World!"] ]
 EOT;
 
-        $this->files->put("resources/assets/elm/$program/Main.elm", $initialProgram);
+        $this->files->put("resources/elm/$program/Main.elm", $initialProgram);
     }
 }
