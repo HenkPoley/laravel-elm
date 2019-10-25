@@ -74,7 +74,42 @@ main =
    div [] [ h1 [] [text "Hello, World!"] ]
 EOT;
 
-        $this->files->put("resources/elm/$program/Main.elm", $initialProgram);
+        // TODO: Look for elm.json file
+        //   Missing? run `echo 'y' | elm init`
+        //   Read elm.json and pick the first item in 'source-directories'
+        
+        // TODO: Add /resources/elm/elm-stuff to .gitignore
+        $this->files->put("resources/elm/src/$program/Main.elm", $initialProgram);
+        
+        // TODO: Some kind of build script to build to public/{$program}/Elm.Main.init.js
+        
+        // TODO: create resources/views/{$program}.blade.php
+        //   <!DOCTYPE HTML>
+        //   <html>
+        //   <head>
+        //       <meta charset="UTF-8">
+        //       <title>{$program}</title>
+        //       <style>body {
+        //               padding: 0;
+        //               margin: 0;
+        //           }</style>
+        //   </head>
+        //   
+        //   <body>
+        //   <script src="js/{$program}/Elm.Main.init.js"></script>
+        //   
+        //   {!! $elm !!}
+        //   
+        //   </body>
+        //   </html>
+        // TODO: create app/Http/Controllers/{$program}ElmController.php
+        
+        // TODO: Write to console what add to config/app.php
+        //   `'providers' => [ .., Tightenco\Elm\ElmServiceProvider::class, ]` 
+        //   `'aliases' => [ .., 'Elm' => Tightenco\Elm\ElmFacade::class, ]`
+        
+        // TODO: Write to console what to add to routes/web.php
+        //   `Route::get('{$program}', '{$program}ElmController@index');`
         
         $this->info('Now run:');
         $this->line('$ cd resources/elm/');
